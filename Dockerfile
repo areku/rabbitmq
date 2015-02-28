@@ -5,11 +5,12 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu:14.04
 
 # Add files.
 ADD bin/rabbitmq-start /usr/local/bin/
 
+RUN apt-get install -y wget
 # Install RabbitMQ.
 RUN \
   wget -qO - https://www.rabbitmq.com/rabbitmq-signing-key-public.asc | apt-key add - && \
